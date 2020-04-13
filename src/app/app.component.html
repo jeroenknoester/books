@@ -1,6 +1,9 @@
 <h1>{{ title }}</h1>
 <ul *ngFor="let book of books$ | async">
-  <li>{{ book.title }} - by: {{ book.author.firstname }}</li>
+  <li>
+    {{ book.title }} - by: {{ book.author.firstname }}
+    {{ book.author.lastname }}
+  </li>
 </ul>
 
 <router-outlet></router-outlet>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from './models';
 import { BookService } from './services/book.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   constructor(private readonly bookService: BookService) {}
   /** Initialization lifecycle hook */
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.books$ = this.bookService.getBooks();
   }
 }

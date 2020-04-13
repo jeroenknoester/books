@@ -13,4 +13,6 @@ describe('BookService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  // TODO: test service to return books
 });
