@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from './models';
-import { BookService } from './services/book.service';
+import { loadBooks } from './store/actions';
+import { State } from './store/interfaces';
+import { selectBooks } from './store/selectors';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +15,10 @@ export class AppComponent implements OnInit {
   books$: Observable<Book[]>;
   title = 'Books';
 
-  constructor(private readonly bookService: BookService) {}
+  constructor(private readonly store: Store<State>) {}
   /** Initialization lifecycle hook */
   ngOnInit(): void {
-    this.books$ = this.bookService.getBooks();
+    this.store.dispatch(loadBooks());
+    this.books$ = this.store.pipe(select(selectBooks));
   }
 }

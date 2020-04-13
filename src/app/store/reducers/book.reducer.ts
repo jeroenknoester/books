@@ -5,14 +5,9 @@ import {
   loadBooksSuccess,
 } from '../actions/book.actions';
 import { Book } from './../../models';
+import { BookState } from '../interfaces';
 
 export const bookFeatureKey = 'book';
-
-export interface BookState {
-  items: Book[];
-  loadSuccess: boolean;
-  errorMessage: string;
-}
 
 export const initialState: BookState = {
   items: [],
